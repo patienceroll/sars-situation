@@ -1,3 +1,8 @@
+*{
+  margin:0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,51 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: none;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-webkit-scrollbar {
+  overflow-x:hidden;
+}
+
+/* 页面容器样式 */
+.container{
+  position: relative;
+  overflow: hidden;
+}
+.scroller{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 1s ease-in-out;
+}
+
+/* 导航列表样式 */
+.nav-list-container{
+  width:70px;
+  height: 240px;
+  position: fixed;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-list-container li{
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;  
+  text-align: center;
+  background-color: rgb(16, 149, 238);
+  border-radius: 50%;
+  color: white;
+  font:normal bold 10px/70px Arial;
+}
+.nav-list-container .current{
+  color: red;
+  background-color: green;
 }
