@@ -6,6 +6,9 @@ import './CurrentSituation.css';
 // ant 组件
 import { Row, Col } from 'antd';
 
+// 引用 window 对象里的百度地图
+const { BMap } = window;
+console.log(window.infectData);
 
 class TotalData extends React.Component {
     render() {
@@ -37,49 +40,13 @@ class MapSituation extends React.Component {
 
     state = {
         chinaAreaTree: [],
-        infectMap: {},
         //省份坐标(避免地址解析直接给出，顺序与chinaAreaTree中中国地区省份顺序一致)
-        provinceCoord: [
-            { "lng": 111.14588269007913, "lat": 33.13290326055209 },
-            { "lng": 121.14878143025066, "lat": 30.188062675913905 },
-            { "lng": 113.99743053873469, "lat": 22.53581126769833 },
-            { "lng": 101.62247338027404, "lat": 34.740396071091155 },
-            { "lng": 113.00278697331211, "lat": 28.186192975476388 },
-            { "lng": 115.91542320365122, "lat": 28.68169051676075 },
-            { "lng": 117.35541692271576, "lat": 32.96651320701659 },
-            { "lng": 120.31068763182607, "lat": 35.99530630404869 },
-            { "lng": 108.3799135180364, "lat": 30.814967604192656 },
-            { "lng": 103.93717563531006, "lat": 30.608293840569402 },
-            { "lng": 118.92040902964006, "lat": 32.084060015522816 },
-            { "lng": 116.51288495608856, "lat": 39.84746927558593 },
-            { "lng": 121.48680103771713, "lat": 31.24257042542815 },
-            { "lng": 119.35038995226057, "lat": 26.058660737766438 },
-            { "lng": 108.66358796476031, "lat": 21.943465001920465 },
-            { "lng": 108.96039314875111, "lat": 34.27580800602361 },
-            { "lng": 102.47404642159835, "lat": 24.917734785759006 },
-            { "lng": 117.20359278135501, "lat": 39.15348514470478 },
-            { "lng": 126.60465403880194, "lat": 45.76771786534516 },
-            { "lng": 100.62662114445924, "lat": 36.2921024798988 },
-            { "lng": 123.43559785683209, "lat": 41.84146525120185 },
-            { "lng": 111.0096707391596, "lat": 38.976285468146884 },
-            { "lng": 117.32805624366229, "lat": 39.17126680178836 },
-            { "lng": 106.67307599435273, "lat": 26.702860015324976 },
-            { "lng": 103.84210203437273, "lat": 36.060173609307874 },
-            { "lng": 106.17116945214102, "lat": 38.464453346515356 },
-            { "lng": 111.77260583081977, "lat": 40.823156232446166 },
-            { "lng": 87.63347320573824, "lat": 43.79923810128996 },
-            { "lng": 125.33257987514821, "lat": 43.90171443544392 },
-            { "lng": 120.97895033904341, "lat": 23.75701796393315 },
-            { "lng": 101.78646183586761, "lat": 36.62715857923451 },
-            { "lng": 114.0688464555682, "lat": 22.53615142365805 },
-            { "lng": 91.12434212899261, "lat": 29.652893647472517 }
-        ]
+        provinceCoord: [{"lng":114.34844073658718,"lat":30.551600064658352},{"lng":120.15953308739246,"lat":30.271548393336545},{"lng":113.27242891272826,"lat":23.13794855653905},{"lng":112.98960254334654,"lat":28.118269998009367},{"lng":113.75938408486323,"lat":34.771712921931496},{"lng":115.91542320365122,"lat":28.68169051676075},{"lng":117.3305404177196,"lat":31.73429415631746},{"lng":117.02744162847857,"lat":36.674856650404905},{"lng":106.55843415537664,"lat":29.568996245338923},{"lng":104.07346654728391,"lat":30.577543147015334},{"lng":118.76955164466914,"lat":32.066776944293416},{"lng":116.4133836971231,"lat":39.910924547299565},{"lng":119.30244747703945,"lat":26.106339415901047},{"lng":121.48053886017651,"lat":31.235929042252014},{"lng":102.71641607523223,"lat":25.051562267344867},{"lng":108.3345212294372,"lat":22.821268997908664},{"lng":114.53659630531568,"lat":38.04320164520046},{"lng":108.96039314875111,"lat":34.27580800602361},{"lng":126.66965282041836,"lat":45.74792983743469},{"lng":110.35553651088428,"lat":20.025801964462914},{"lng":112.56937550968271,"lat":37.87982942385603},{"lng":123.43559785683209,"lat":41.84146525120185},{"lng":117.2095232146708,"lat":39.093667843403956},{"lng":103.83247812812213,"lat":36.06546488736762},{"lng":106.71447593088575,"lat":26.604029544994923},{"lng":106.26560480701352,"lat":38.47687796791088},{"lng":111.77260583081977,"lat":40.823156232446166},{"lng":87.63347320573824,"lat":43.79923810128996},{"lng":125.33107197951917,"lat":43.89257578056888},{"lng":120.97895033904341,"lat":23.75701796393315},{"lng":101.78537335908116,"lat":36.62935165833543},{"lng":91.12434212899261,"lat":29.652893647472517}]
     }
 
     initInfectMap() {
-        const { BMap } = window;
-        var { infectMap} = this.state;
-        infectMap = new BMap.Map('infectMap');
+        let infectMap = new BMap.Map('infectMap');
+        this.infectMap = infectMap;
         var point = new BMap.Point(106.558, 29.568);
         infectMap.centerAndZoom(point, 7);
         infectMap.addControl(new BMap.NavigationControl());
@@ -87,19 +54,28 @@ class MapSituation extends React.Component {
 
 
     addProvinceLayer() {
-        const { BMap } = window;
-        setTimeout(() => {
-            this.state.chinaAreaTree.map(item => {
-                var myGeo = new BMap.Geocoder();
-                // 将地址解析结果显示在地图上，并调整地图视野    
-                myGeo.getPoint(item.name, function (point) {
-                    if (point) {
-                        a.push(point);
-                        item.name === '西藏' && console.log(JSON.stringify(a));
-                    }
-                }, item.name);
+        const { provinceCoord } = this.state;
+        provinceCoord.map((point,index)=>this.createOverLayer(point,index))
+    }
+
+    createOverLayer(point,index) {
+        const provinceInfect = window.infectData.areaTree[0].children;
+        console.log(provinceInfect);
+        const label = new BMap.Label(JSON.stringify(point), { position: point });
+        label.setContent(`<div>确诊</div><span>${provinceInfect[index].total.confirm}例</span>`);
+        label.setStyle({
+            color : "#FF0033",
+            fontSize : "35px",
+            height : "100px",
+            width:'100px',
+            lineHeight : "45px",
+            fontFamily:"微软雅黑",
+            borderRadius:'0 50% 50% 50%',
+            backgroundColor:'#FF9966',
+            border:'0',
+            textAlign:'center'
             });
-        }, 100);
+        this.infectMap.addOverlay(label);
     }
 
     refreshState() {
@@ -116,9 +92,7 @@ class MapSituation extends React.Component {
     }
 
     render() {
-        return <div id='infectMap' style={{ height: window.innerHeight - 330 }}>
-
-        </div>
+        return <div id='infectMap' style={{ height: window.innerHeight - 330 }}></div>
     }
 }
 
