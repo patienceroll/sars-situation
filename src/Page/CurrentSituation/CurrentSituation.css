@@ -1,0 +1,23 @@
+.totalDataRow{
+    text-align: center;
+}
+
+.totalDataRow .ant-col{
+    height: 130px;
+    vertical-align: top;
+}
+
+.totalDataRow .ant-col span{
+    line-height: 90px;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.totalDataRow .ant-col p{
+    line-height: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+

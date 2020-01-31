@@ -6,10 +6,10 @@ import 'antd/dist/antd.css';
 import './index.css';
 
 // 组件
-import Map from './Page/Map/Map.jsx';
-import InfectData from './Page/InfectData/InfectData.jsx';
+import CurrentSituation from './Page/CurrentSituation/CurrentSituation.jsx';
+import InlandCase from './Page/InlandCase/InlandCase.jsx';
+import VariationTrend from './Page/VariationTrend/VariationTrend.jsx';
 import LatestNews from './Page/LatestNews/LatestNews.jsx';
-import Home from './Page/Home/Home.jsx';
 
 class NavList extends React.Component {
     state = {
@@ -21,7 +21,7 @@ class NavList extends React.Component {
         return <>
             <ul className='nav-list-container'>
                 {this.state.navList.map((item, index) =>
-                    scrollerParam !== index ? <li key={index} onClick={()=>currentList(index)}>{item}</li> : <li key={index} onClick={()=>currentList(index)} className='current'>{item}</li>)}
+                    scrollerParam !== index ? <li key={index} onClick={() => currentList(index)}>{item}</li> : <li key={index} onClick={() => currentList(index)} className='current'>{item}</li>)}
             </ul>
         </>
     }
@@ -32,7 +32,7 @@ class App extends React.Component {
 
     state = {
         windowHeight: 928,
-        scrollerParam: 1
+        scrollerParam: 0
     }
 
     componentDidMount() {
@@ -61,15 +61,15 @@ class App extends React.Component {
                 <div className='scroller' style={{ top: -windowHeight * scrollerParam }}>
 
                     <div style={{ height: windowHeight }}>
-                        <Home></Home>
+                        <CurrentSituation></CurrentSituation>
                     </div>
 
                     <div style={{ height: windowHeight }}>
-                        <Map></Map>
+                        <InlandCase></InlandCase>
                     </div>
 
                     <div style={{ height: windowHeight }}>
-                        <InfectData></InfectData>
+                        <VariationTrend></VariationTrend>
                     </div>
 
                     <div style={{ height: windowHeight }}>
