@@ -1,4 +1,31 @@
 .div{
-    background-color: yellow;
+    background-color: #fff;
     height: 100%;
 }
+.header{
+    background-color: #0099CC;
+    padding-left: 15%;
+
+    height: 175px;
+    width: 100%;
+}
+.title{
+    color:#fff;
+    font-size:120px;
+    line-height:150px;
+    font-weight:bold;
+    transition: all 2 ease-in-out;
+}
+.infectListContainer{
+    height: 100%;
+    background-color: #EEEEFF;
+}
+.leftContainer{
+    height: 100%;
+    padding: 12px;
+}
+.rightContainer{
+    height: 100%;
+    padding: 12px;
+}
+

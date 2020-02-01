@@ -7,6 +7,7 @@
     height: 200px;
     background-image: linear-gradient(200deg, #fff, #0099cc);
     overflow: hidden;
+    position: relative;
 }
 
 .title1{
@@ -27,4 +28,11 @@
     height: 50px;
     line-height: 40px;
     font-size: 40px;
+}
+.time{
+    position: absolute;
+    bottom: 4%;
+    left:1%;
+    font-size: 30px;
+    color: #fff;
 }

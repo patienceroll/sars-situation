@@ -222,6 +222,12 @@ class CurrentSituation extends React.Component {
             <div className={style.header}>
                 <div className={style.title1}>新型冠状肺炎</div>
                 <div className={style.title2}>疫情实时追踪</div>
+                <div className={style.time}>
+                    <Icon type="clock-circle" />
+                    <span style={{ margin: '0 10px' }}>统计截止:</span>
+                    <span style={{ margin: '0 10px' }}>{this.state.lastUpdateTime}</span>
+                    <Icon type="sync" spin={true} />
+                </div>
             </div>
 
             {/* 实时总览 */}
