@@ -4,11 +4,10 @@ import style from './CurrentSituation.module.css';
 import './CurrentSituation.css';
 
 // ant 组件
-import { Row, Col } from 'antd';
+import { Row, Col, Button, Icon } from 'antd';
 
 // 引用 window 对象里的百度地图
 const { BMap } = window;
-console.log(window.infectData);
 
 class TotalData extends React.Component {
     render() {
@@ -40,8 +39,44 @@ class MapSituation extends React.Component {
 
     state = {
         chinaAreaTree: [],
-        //省份坐标(避免地址解析直接给出，顺序与chinaAreaTree中中国地区省份顺序一致)
-        provinceCoord: [{"lng":114.34844073658718,"lat":30.551600064658352},{"lng":120.15953308739246,"lat":30.271548393336545},{"lng":113.27242891272826,"lat":23.13794855653905},{"lng":112.98960254334654,"lat":28.118269998009367},{"lng":113.75938408486323,"lat":34.771712921931496},{"lng":115.91542320365122,"lat":28.68169051676075},{"lng":117.3305404177196,"lat":31.73429415631746},{"lng":117.02744162847857,"lat":36.674856650404905},{"lng":106.55843415537664,"lat":29.568996245338923},{"lng":104.07346654728391,"lat":30.577543147015334},{"lng":118.76955164466914,"lat":32.066776944293416},{"lng":116.4133836971231,"lat":39.910924547299565},{"lng":119.30244747703945,"lat":26.106339415901047},{"lng":121.48053886017651,"lat":31.235929042252014},{"lng":102.71641607523223,"lat":25.051562267344867},{"lng":108.3345212294372,"lat":22.821268997908664},{"lng":114.53659630531568,"lat":38.04320164520046},{"lng":108.96039314875111,"lat":34.27580800602361},{"lng":126.66965282041836,"lat":45.74792983743469},{"lng":110.35553651088428,"lat":20.025801964462914},{"lng":112.56937550968271,"lat":37.87982942385603},{"lng":123.43559785683209,"lat":41.84146525120185},{"lng":117.2095232146708,"lat":39.093667843403956},{"lng":103.83247812812213,"lat":36.06546488736762},{"lng":106.71447593088575,"lat":26.604029544994923},{"lng":106.26560480701352,"lat":38.47687796791088},{"lng":111.77260583081977,"lat":40.823156232446166},{"lng":87.63347320573824,"lat":43.79923810128996},{"lng":125.33107197951917,"lat":43.89257578056888},{"lng":120.97895033904341,"lat":23.75701796393315},{"lng":101.78537335908116,"lat":36.62935165833543},{"lng":91.12434212899261,"lat":29.652893647472517}]
+        displayBackBtn: false,
+        provinceCorrd: {
+            '新疆': { lng: 87.63347320573824, lat: 43.79923810128996 },
+            '西藏': { lng: 91.12082391546393, lat: 29.65004027476773 },
+            '黑龙江': { lng: 126.66965282041836, lat: 45.74792983743469 },
+            '吉林': { lng: 125.33107197951917, lat: 43.89257578056888 },
+            '辽宁': { lng: 123.43559785683209, lat: 41.84146525120185 },
+            '内蒙古': { lng: 111.67741976203259, lat: 40.82403376116102 },
+            '北京': { lng: 116.4133836971231, lat: 39.910924547299565 },
+            '宁夏': { lng: 106.26560480701352, lat: 38.47687796791088 },
+            '山西': { lng: 112.56937550968271, lat: 37.87982942385603 },
+            '河北': { lng: 114.53659630531568, lat: 38.04320164520046 },
+            '天津': { lng: 117.2095232146708, lat: 39.093667843403956 },
+            '青海': { lng: 101.78537335908116, lat: 36.62935165833543 },
+            '甘肃': { lng: 103.83247812812213, lat: 36.06546488736762 },
+            '山东': { lng: 117.02744162847857, lat: 36.674856650404905 },
+            '陕西': { lng: 108.96039314875111, lat: 34.27580800602361 },
+            '河南': { lng: 113.75938408486323, lat: 34.771712921931496 },
+            '安徽': { lng: 117.3305404177196, lat: 31.73429415631746 },
+            '江苏': { lng: 118.76955164466914, lat: 32.066776944293416 },
+            '上海': { lng: 121.48053886017651, lat: 31.235929042252014 },
+            '四川': { lng: 104.07346654728391, lat: 30.577543147015334 },
+            '湖北': { lng: 114.34844073658718, lat: 30.551600064658352 },
+            '浙江': { lng: 120.15953308739246, lat: 30.271548393336545 },
+            '重庆': { lng: 106.55843415537664, lat: 29.568996245338923 },
+            '湖南': { lng: 112.98960254334654, lat: 28.118269998009367 },
+            '江西': { lng: 115.91542320365122, lat: 28.68169051676075 },
+            '贵州': { lng: 106.71447593088575, lat: 26.604029544994923 },
+            '福建': { lng: 119.30244747703945, lat: 26.106339415901047 },
+            '云南': { lng: 102.71641607523223, lat: 25.051562267344867 },
+            '台湾': { lng: 120.97895033904341, lat: 23.75701796393315 },
+            '广西': { lng: 108.3345212294372, lat: 22.821268997908664 },
+            '广东': { lng: 113.27242891272826, lat: 23.13794855653905 },
+            '海南': { lng: 110.35553651088428, lat: 20.025801964462914 },
+            '澳门': { lng: 113.566432335, lat: 22.1950041592 },
+            '香港': { lng: 114.146701965, lat: 22.4274312754 }
+        }
+
     }
 
     initInfectMap() {
@@ -54,45 +89,104 @@ class MapSituation extends React.Component {
 
 
     addProvinceLayer() {
-        const { provinceCoord } = this.state;
-        provinceCoord.map((point,index)=>this.createOverLayer(point,index))
+        const { infectMap, createOverLayer } = this;
+        const { chinaAreaTree, provinceCorrd } = this.state;
+        chinaAreaTree.map((item, index) => {
+            let point = {};
+            point.lng = provinceCorrd[item.name].lng;
+            point.lat = provinceCorrd[item.name].lat;
+            createOverLayer(chinaAreaTree, point, index, 11, infectMap);
+        })
     }
 
-    createOverLayer(point,index) {
-        const provinceInfect = window.infectData.areaTree[0].children;
-        console.log(provinceInfect);
-        const label = new BMap.Label(JSON.stringify(point), { position: point });
-        label.setContent(`<div>确诊</div><span>${provinceInfect[index].total.confirm}例</span>`);
+    addCityLayer(provinceIndex) {
+        const { chinaAreaTree } = this.state;
+        const province = chinaAreaTree[provinceIndex];
+        const { infectMap, createOverLayer } = this;
+
+        this.setState({
+            displayBackBtn: true
+        })
+
+        province.children.map((item, index) => {
+            var myGeo = new BMap.Geocoder();
+            item.name !== '地区待确认' && myGeo.getPoint(item.name, (point) => {
+                if (point) {
+                    createOverLayer(province.children, point, index, undefined, infectMap);
+                }
+            }, province);
+        });
+
+
+    }
+
+    createOverLayer(data, point, index, zoom, mapObject) {
+        const label = new BMap.Label('', { position: point });
+        const infectMap = mapObject;
+        label.setContent(`<div>确诊</div><span>${data[index].total.confirm}例</span>`);
         label.setStyle({
-            color : "#FF0033",
-            fontSize : "35px",
-            height : "100px",
-            width:'100px',
-            lineHeight : "45px",
-            fontFamily:"微软雅黑",
-            borderRadius:'0 50% 50% 50%',
-            backgroundColor:'#FF9966',
-            border:'0',
-            textAlign:'center'
-            });
-        this.infectMap.addOverlay(label);
+            color: "#FF0033",
+            fontSize: "35px",
+            height: "100px",
+            width: '100px',
+            lineHeight: "45px",
+            fontFamily: "微软雅黑",
+            borderRadius: '0 50% 50% 50%',
+            backgroundColor: '#FF9966',
+            border: '0',
+            textAlign: 'center'
+        });
+        label.addEventListener('click', (e) => {
+            infectMap.centerAndZoom(new BMap.Point(point.lng, point.lat), zoom);
+            infectMap.clearOverlays();
+            zoom === 11 && window.addCityLayer(index);
+        });
+        infectMap.addOverlay(label);
     }
 
     refreshState() {
         const { infectData } = window;
-        this.setState({
-            chinaAreaTree: infectData.areaTree[0].children
-        })
+        try {
+            this.setState({
+                chinaAreaTree: infectData.areaTree[0].children
+            })
+        } catch (e) {
+            alert(e);
+        }
+
     }
 
-    componentDidMount() {
-        this.refreshState();
-        this.initInfectMap();
-        this.addProvinceLayer();
+    async componentDidMount() {
+        await this.refreshState();
+        await this.initInfectMap();
+        await this.addProvinceLayer();
+        // 百度地图覆盖物添加事件会导致this丢失 
+        window.addCityLayer = this.addCityLayer.bind(this);
     }
 
     render() {
-        return <div id='infectMap' style={{ height: window.innerHeight - 330 }}></div>
+        return <>
+            <div id='infectMap' style={{ height: window.innerHeight - 330 }}></div>
+            {this.props.scrollerParam === 0 && this.state.displayBackBtn &&
+                <Button
+                    className={style.rebackBtn}
+                    type="primary"
+                    size='large'
+                    onClick={() => {
+                        this.infectMap.clearOverlays();
+                        this.addProvinceLayer();
+                        var point = new BMap.Point(106.558, 29.568);
+                        this.infectMap.centerAndZoom(point, 7);
+                        this.setState({
+                            displayBackBtn: false
+                        })
+                    }}
+                >
+                    返回省级
+                <Icon type="rollback" /></Button>
+            }
+
+        </>
     }
 }
 
@@ -134,7 +228,7 @@ class CurrentSituation extends React.Component {
             <TotalData chinaTotal={this.state.chinaTotal}></TotalData>
 
             {/* 地图疫情 */}
-            <MapSituation></MapSituation>
+            <MapSituation scrollerParam={this.props.scrollerParam}></MapSituation>
         </div>
     }
 }

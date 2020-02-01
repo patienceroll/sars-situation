@@ -45,12 +45,15 @@ code {
   height: 70px;
   margin-bottom: 10px;  
   text-align: center;
-  background-color: rgb(16, 149, 238);
+  background-color: #99CCFF;
   border-radius: 50%;
   color: white;
   font:normal bold 10px/70px Arial;
-}
+  opacity: 0.6;
+} 
 .nav-list-container .current{
-  color: red;
-  background-color: green;
+  color: #fff;
+  background-color: #0099CC;
+  opacity: 1;
+  transition: all 1s ease;
 }

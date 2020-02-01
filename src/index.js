@@ -61,7 +61,7 @@ class App extends React.Component {
                 <div className='scroller' style={{ top: -windowHeight * scrollerParam }}>
 
                     <div style={{ height: windowHeight }}>
-                        <CurrentSituation></CurrentSituation>
+                        <CurrentSituation scrollerParam={scrollerParam}></CurrentSituation>
                     </div>
 
                     <div style={{ height: windowHeight }}>
