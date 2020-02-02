@@ -32,7 +32,10 @@ class App extends React.Component {
 
     state = {
         windowHeight: 928,
-        scrollerParam: 0
+        // 整个页面处于哪一页的状态
+        scrollerParam: 0,
+        // 允许整个页面滚动的状态
+        pageScroll: true
     }
 
     componentDidMount() {
@@ -41,15 +44,24 @@ class App extends React.Component {
         })
     }
 
+    // 监听滚轮滚动
     handleWheel(e) {
-        const { scrollerParam } = this.state;
-        e.deltaY > 0 && this.setState({ scrollerParam: scrollerParam === 3 ? 3 : scrollerParam + 1 })
-        e.deltaY < 0 && this.setState({ scrollerParam: scrollerParam === 0 ? 0 : scrollerParam - 1 })
+        const { scrollerParam, pageScroll } = this.state;
+        e.deltaY > 0 && pageScroll && this.setState({ scrollerParam: scrollerParam === 3 ? 3 : scrollerParam + 1 })
+        e.deltaY < 0 && pageScroll && this.setState({ scrollerParam: scrollerParam === 0 ? 0 : scrollerParam - 1 })
     }
 
+    // 传递给NavList组件、CurrentSituation的地图展示组件状态提升的函数
     scrollerParamChange(newScrollerParam) {
         this.setState({
             scrollerParam: newScrollerParam
+        })
+    }
+
+    // 传递给InlandCase组件的状态提升函数,因为整个页面和长列表同时监听滚动事件
+    pageScrollStateChange(newState) {
+        this.setState({
+            pageScroll: newState
         })
     }
 
@@ -65,7 +77,9 @@ class App extends React.Component {
                     </div>
 
                     <div style={{ height: windowHeight }}>
-                        <InlandCase></InlandCase>
+                        <InlandCase
+                            pageScrollStateChange={this.pageScrollStateChange.bind(this)}
+                        ></InlandCase>
                     </div>
 
                     <div style={{ height: windowHeight }}>

@@ -1,0 +1,10 @@
+
+.InlandList{
+    position: relative;
+     height: 100%;
+     overflow: scroll;
+}
+.InlandList .ant-list-header{
+    background-color: #fff;
+    width: 100%;
+}

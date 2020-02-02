@@ -2,6 +2,7 @@
     background-color: #fff;
     height: 100%;
 }
+
 .header{
     background-color: #0099CC;
     padding-left: 15%;
@@ -9,6 +10,7 @@
     height: 175px;
     width: 100%;
 }
+
 .title{
     color:#fff;
     font-size:120px;
@@ -16,16 +18,36 @@
     font-weight:bold;
     transition: all 2 ease-in-out;
 }
+
 .infectListContainer{
-    height: 100%;
     background-color: #EEEEFF;
 }
+
 .leftContainer{
     height: 100%;
     padding: 12px;
 }
+
 .rightContainer{
     height: 100%;
     padding: 12px;
 }
 
+.inlandList{
+    text-align: center;
+    display: flex;
+    width:100%;
+}
+
+.listItem1{
+    flex: 1;
+}
+
+.listItem2{
+    flex: 2;
+}
+
+.listContainer1{
+    height: 100%;
+    width: 100%;
+}
