@@ -1,0 +1,32 @@
+.div{
+    background-color: #fff;
+    height: 100%;
+}
+
+.header{
+    background-color: #0099CC;
+    padding-left: 15%;
+    height: 175px;
+    width: 100%;
+}
+
+.title{
+    color:#fff;
+    font-size:120px;
+    line-height:150px;
+    font-weight:bold;
+}
+
+.trendContainer{
+    background-color: #EEEEFF;
+}
+
+.increaseTrend{
+    height: 100%;
+    padding: 2%;
+}
+
+.comfirmTrend{
+    height: 100%;
+    padding: 2%;
+}

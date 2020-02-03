@@ -96,6 +96,7 @@ class MapSituation extends React.Component {
             point.lng = provinceCorrd[item.name].lng;
             point.lat = provinceCorrd[item.name].lat;
             createOverLayer(chinaAreaTree, point, index, 11, infectMap);
+            return null;
         })
     }
 
@@ -115,9 +116,8 @@ class MapSituation extends React.Component {
                     createOverLayer(province.children, point, index, undefined, infectMap);
                 }
             }, province);
+            return null;
         });
-
-
     }
 
     createOverLayer(data, point, index, zoom, mapObject) {

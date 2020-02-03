@@ -41,7 +41,6 @@ class InfectList extends React.Component {
 
     async componentDidMount() {
         await this.refreshState();
-        console.log(this.state.inlandTree)
     }
 
     render() {
@@ -112,13 +111,7 @@ class InfectList extends React.Component {
                                                     </List.Item>}
                                                 />
                                             </Panel>
-
-
-
-
-
                                         </Collapse>
-
                                     </List.Item>
                                 )}
                             />
@@ -129,7 +122,7 @@ class InfectList extends React.Component {
 
                 {/* 国外病例列表 */}
                 <Col span={8} className={style.rightContainer}>
-                    <Card title={<span><Icon type="idcard" /> 国级病例</span>}
+                    <Card title={<span><Icon type="idcard" /> 国际病例</span>}
                         bordered={false}
                         style={{ width: '100%', height: '100%', boxShadow: '4px 4px 5px #888888', overflow: 'hidden' }}
                         headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '25px', height: '70px' }}
