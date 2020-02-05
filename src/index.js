@@ -87,7 +87,10 @@ class App extends React.Component {
                     </div>
 
                     <div style={{ height: windowHeight }}>
-                        <LatestNews></LatestNews>
+                        <LatestNews
+                            pageScrollStateChange={this.pageScrollStateChange.bind(this)}
+                            scrollerParam={scrollerParam}
+                        ></LatestNews>
                     </div>
                 </div>
             </div>
