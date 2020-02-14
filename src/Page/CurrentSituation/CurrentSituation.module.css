@@ -4,7 +4,7 @@
 }
 
 .header{
-    height: 200px;
+    height: 150px;
     background-image: linear-gradient(200deg, #fff, #0099cc);
     overflow: hidden;
     position: relative;
@@ -12,12 +12,12 @@
 
 .title1{
     color: #fff;
-    font-size: 40px;
+    font-size: 30px;
     padding-left: 15%;
 }
 .title2{
     color: #fff;
-    font-size: 100px;
+    font-size: 75px;
     text-align: center;
     font-weight: bold;
 }
@@ -25,14 +25,14 @@
     position: fixed;
     bottom: 5%;
     right: 5%;
-    height: 50px;
-    line-height: 40px;
-    font-size: 40px;
+    height: 37.5px;
+    line-height: 22.5px;
+    font-size: 22.5px;
 }
 .time{
     position: absolute;
     bottom: 4%;
     left:1%;
-    font-size: 30px;
+    font-size: 22.5px;
     color: #fff;
 }

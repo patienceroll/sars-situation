@@ -1,14 +1,14 @@
 .header{
     background-color: #0099CC;
     padding-left: 15%;
-    height: 175px;
+    height: 131.25px;
     width: 100%;
 }
 
 .title{
     color:#fff;
-    font-size:120px;
-    line-height:150px;
+    font-size:90px;
+    line-height:112.5px;
     font-weight:bold;
 }
 
@@ -26,24 +26,24 @@
 .timeLine{
 
     color: #737373;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .titleLine{
     color: #222;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    padding:0 30px;
+    padding:0 22.5px;
 }
 .descBox{
-    padding:0 30px;
+    padding:0 22.5px;
     color: #737373;
-    font-size: 18px;
-    margin:15px 0;
+    font-size: 13.5px;
+    margin:11.25px 0;
 }
 .sourceLine{
-    padding:0 30px;
+    padding:0 22.5px;
     color: #222;
-    font-size: 20px;
+    font-size: 15px;
 }

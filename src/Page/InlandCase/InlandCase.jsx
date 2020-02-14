@@ -11,12 +11,12 @@ class Header extends React.Component {
     render() {
         return <div className={style.header}>
             <div className={style.title}>
-                <Icon type="container" style={{ fontSize: '80px' }} />
-                <span style={{ marginLeft: '12px', }}>病例</span>
-                <Icon type="clock-circle" style={{ fontSize: '30px', marginLeft: '30%' }} />
-                <span style={{ fontSize: '30px', lineHeight: '30px', marginLeft: '10px' }}>数据来源于腾讯新闻</span>
-                <span style={{ margin: '0 10px', fontSize: 30 }}>{window.infectData.lastUpdateTime}</span>
-                <Icon type="sync" spin={true} style={{ fontSize: '30px' }} />
+                <Icon type="container" style={{ fontSize: '60px' }} />
+                <span style={{ marginLeft: '9px', }}>病例</span>
+                <Icon type="clock-circle" style={{ fontSize: '22.5px', marginLeft: '30%' }} />
+                <span style={{ fontSize: '22.5px', lineHeight: '22.5px', marginLeft: '7.5px' }}>数据来源于腾讯新闻</span>
+                <span style={{ margin: '0 7.5px', fontSize: 22.5 }}>{window.infectData.lastUpdateTime}</span>
+                <Icon type="sync" spin={true} style={{ fontSize: '22.5px' }} />
             </div>
 
         </div>
@@ -46,17 +46,17 @@ class InfectList extends React.Component {
     render() {
         const { pageScrollStateChange } = this.props;
         return <>
-            <Row className={style.infectListContainer} style={{ height: window.innerHeight - 175 }}>
+            <Row className={style.infectListContainer} style={{ height: window.innerHeight - 131.25 }}>
 
                 {/* 国内病例列表 */}
                 <Col span={16} className={style.leftContainer} >
                     <Card title={<span><Icon type="idcard" /> 国内病例</span>}
                         bordered={false}
                         style={{ width: '100%', height: '100%', boxShadow: '4px 4px 5px #888888', overflow: 'hidden' }}
-                        headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '25px', height: '70px' }}
-                        bodyStyle={{ height: window.innerHeight - 269 }}
+                        headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '18.75px', height: '52.5px' }}
+                        bodyStyle={{ height: window.innerHeight - 201.75 ,paddingBottom:35}}
                     >
-                        <Row style={{ textAlign: 'center', padding: '0 49px 0 24px', fontWeight: 'bold', fontSize: 25 }}>
+                        <Row style={{ textAlign: 'center', padding: '0 36.75px 0 18px', fontWeight: 'bold', fontSize: 18.75 }}>
                             <Col span={4}>地区</Col>
                             <Col span={8}>新增确诊</Col>
                             <Col span={4}>累计确诊</Col>
@@ -125,10 +125,10 @@ class InfectList extends React.Component {
                     <Card title={<span><Icon type="idcard" /> 国际病例</span>}
                         bordered={false}
                         style={{ width: '100%', height: '100%', boxShadow: '4px 4px 5px #888888', overflow: 'hidden' }}
-                        headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '25px', height: '70px' }}
-                        bodyStyle={{ height: window.innerHeight - 269 }}
+                        headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '18.75px', height: '52.5px' }}
+                        bodyStyle={{ height: window.innerHeight - 201.75,paddingBottom:35 }}
                     >
-                        <Row style={{ textAlign: 'center', padding: '0 49px 0 24px', fontWeight: 'bold', fontSize: 25 }}>
+                        <Row style={{ textAlign: 'center', padding: '0 36.75px 0 18px', fontWeight: 'bold', fontSize: 18.75 }}>
                             <Col span={6}>地区</Col>
                             <Col span={12}>新增确诊</Col>
                             <Col span={6}>累计确诊</Col>

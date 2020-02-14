@@ -10,12 +10,12 @@ class Header extends React.Component {
     render() {
         return <div className={style.header}>
             <div className={style.title}>
-                <Icon type="notification" style={{ fontSize: '80px' }} />
-                <span style={{ marginLeft: '12px', }}>进展</span>
-                <Icon type="clock-circle" style={{ fontSize: '30px', marginLeft: '30%' }} />
-                <span style={{ fontSize: '30px', lineHeight: '30px', marginLeft: '10px' }}>数据来源于腾讯新闻</span>
-                <span style={{ margin: '0 10px', fontSize: 30 }}>{window.infectData.lastUpdateTime}</span>
-                <Icon type="sync" spin={true} style={{ fontSize: '30px' }} />
+                <Icon type="notification" style={{ fontSize: '60px' }} />
+                <span style={{ marginLeft: '9px', }}>进展</span>
+                <Icon type="clock-circle" style={{ fontSize: '22.5px', marginLeft: '30%' }} />
+                <span style={{ fontSize: '22.5px', lineHeight: '22.5px', marginLeft: '7.5px' }}>数据来源于腾讯新闻</span>
+                <span style={{ margin: '0 7.5px', fontSize: 22.5 }}>{window.infectData.lastUpdateTime}</span>
+                <Icon type="sync" spin={true} style={{ fontSize: '22.5px' }} />
             </div>
         </div>
     }
@@ -53,17 +53,18 @@ class NewsBoard extends React.Component {
     }
 
     render() {
-        return <div className={style.newsBoardContainer} style={{ height: window.innerHeight - 175 }}>
+        return <div className={style.newsBoardContainer} style={{ height: window.innerHeight - 131.25 }}>
             <Card title={<span><Icon type="plus-circle" /> 最新进展</span>}
                 bordered={false}
                 style={{ width: '100%', height: '100%', boxShadow: '4px 4px 5px #888888', overflow: 'hidden' }}
-                headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '25px', height: '70px', float: 'left', width: '100%' }}
-                bodyStyle={{ height: 'inherit', paddingTop: 70, overflow: 'scroll' }}
+                headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '18.75px', height: '52.5px', float: 'left', width: '100%' }}
+                bodyStyle={{ height: 'inherit', paddingTop: 52.5, overflow: 'scroll' }}
                 onMouseEnter={() => this.props.pageScrollStateChange(false)}
                 onMouseLeave={() => this.props.pageScrollStateChange(true)}
             >
                 {/* 最新进展列表 */}
                 {/* 如果是在第四页才显示此列表 */}
+                {/* // eslint-disable-next-line */}
                 {this.props.scrollerParam === 3 && this.renderNewsList() || null}
                     
             </Card>

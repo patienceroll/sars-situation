@@ -13,12 +13,12 @@ class Header extends React.Component {
     render() {
         return <div className={style.header}>
             <div className={style.title}>
-                <Icon type="rise" style={{ fontSize: '80px' }} />
-                <span style={{ marginLeft: '12px', }}>趋势</span>
-                <Icon type="clock-circle" style={{ fontSize: '30px', marginLeft: '30%' }} />
-                <span style={{ fontSize: '30px', lineHeight: '30px', marginLeft: '10px' }}>数据来源于腾讯新闻</span>
-                <span style={{ margin: '0 10px', fontSize: 30 }}>{window.infectData.lastUpdateTime}</span>
-                <Icon type="sync" spin={true} style={{ fontSize: '30px' }} />
+                <Icon type="rise" style={{ fontSize: '60px' }} />
+                <span style={{ marginLeft: '9px', }}>趋势</span>
+                <Icon type="clock-circle" style={{ fontSize: '22.5px', marginLeft: '30%' }} />
+                <span style={{ fontSize: '22.5px', lineHeight: '22.5px', marginLeft: '7.5px' }}>数据来源于腾讯新闻</span>
+                <span style={{ margin: '0 7.5px', fontSize: 22.5 }}>{window.infectData.lastUpdateTime}</span>
+                <Icon type="sync" spin={true} style={{ fontSize: '22.5px' }} />
             </div>
         </div>
     }
@@ -78,14 +78,14 @@ class Trend extends React.Component {
     }
 
     render() {
-        return <Row className={style.trendContainer} style={{ height: window.innerHeight - 175 }}>
+        return <Row className={style.trendContainer} style={{ height: window.innerHeight - 131.25 }}>
 
             {/* 疫情新增趋势盒子 */}
             <Col span={12} className={style.increaseTrend}>
                 <Card
                     title="日增数量 (人/每日)"
-                    headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '25px', height: '70px', width: '100%' }}
-                    bodyStyle={{ padding: 15, height: '100%' }}
+                    headStyle={{ color: '#fff', backgroundColor: '#0099CC', fontSize: '18.75px', height: '52.5px', width: '100%' }}
+                    bodyStyle={{ padding: 11.25, height: '100%' }}
                     style={{ width: '100%', height: '95%', boxShadow: '4px 4px 5px #888888', overflow: 'hidden' }}
                 >
                     <div id="dayIncreaseGraph" style={{ height: '85%' }}></div>

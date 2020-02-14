@@ -166,7 +166,7 @@ class MapSituation extends React.Component {
 
     render() {
         return <>
-            <div id='infectMap' style={{ height: window.innerHeight - 330 }}></div>
+            <div id='infectMap' style={{ height: window.innerHeight - 247.5 }}></div>
             {this.props.scrollerParam === 0 && this.state.displayBackBtn &&
                 <Button
                     className={style.rebackBtn}

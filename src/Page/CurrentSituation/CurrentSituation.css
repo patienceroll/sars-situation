@@ -4,19 +4,19 @@
 }
 
 .totalDataRow .ant-col{
-    height: 130px;
+    height: 97.5px;
     vertical-align: top;
 }
 
 .totalDataRow .ant-col span{
-    line-height: 90px;
-    font-size: 70px;
+    line-height: 67.5px;
+    font-size: 52.5px;
     font-weight: bold;
 }
 
 .totalDataRow .ant-col p{
-    line-height: 40px;
-    font-size: 30px;
+    line-height: 30px;
+    font-size: 22.5px;
     font-weight: bold;
     margin: 0;
 }

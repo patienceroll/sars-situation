@@ -32,8 +32,8 @@ code {
 
 /* 导航列表样式 */
 .nav-list-container{
-  width:70px;
-  height: 240px;
+  width:52.5px;
+  height: 180px;
   position: fixed;
   right: 4%;
   top: 50%;
@@ -41,14 +41,14 @@ code {
 }
 .nav-list-container li{
   list-style: none;
-  width: 70px;
-  height: 70px;
-  margin-bottom: 10px;  
+  width: 52.5px;
+  height: 52.5px;
+  margin-bottom: 7.5px;  
   text-align: center;
   background-color: #99CCFF;
   border-radius: 50%;
   color: white;
-  font:normal bold 10px/70px Arial;
+  font:normal bold 7.5px/52.5px Arial;
   opacity: 0.3;
 } 
 .nav-list-container .current{

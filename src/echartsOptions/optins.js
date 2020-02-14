@@ -6,7 +6,7 @@ var trendOptins = (increaseDayList,confirmList,suspectList,healedList,deadList) 
     legend: {
         data: ['确诊', '疑似', '治愈', '死亡'],
         textStyle: {
-            fontSize: 25
+            fontSize: 15.75
         }
     },
     xAxis: {
@@ -19,14 +19,14 @@ var trendOptins = (increaseDayList,confirmList,suspectList,healedList,deadList) 
             name: '确诊、疑似(粗线)',
             type: 'value',
             nameTextStyle: {
-                fontSize: 20
+                fontSize: 15
             }
         },
         {
             name: '治愈、死亡(细线)',
             type: 'value',
             nameTextStyle: {
-                fontSize: 20
+                fontSize: 15
             }
         }
     ],
@@ -37,7 +37,7 @@ var trendOptins = (increaseDayList,confirmList,suspectList,healedList,deadList) 
             data: confirmList,
             lineStyle: {
                 color: '#D81D1B',
-                width: 6
+                width: 4.5
             }
         },
         {
@@ -46,7 +46,7 @@ var trendOptins = (increaseDayList,confirmList,suspectList,healedList,deadList) 
             data: suspectList,
             lineStyle: {
                 color: '#F7AB1A',
-                width: 6
+                width: 4.5
             }
         },
         {
@@ -56,7 +56,7 @@ var trendOptins = (increaseDayList,confirmList,suspectList,healedList,deadList) 
             data: healedList,
             lineStyle: {
                 color: '#178B50',
-                width: 3
+                width: 2.25
             }
         },
         {
@@ -66,7 +66,7 @@ var trendOptins = (increaseDayList,confirmList,suspectList,healedList,deadList) 
             data: deadList,
             lineStyle: {
                 color: '#66666C',
-                width: 3
+                width: 2.25
             }
         }
     ]
@@ -81,7 +81,7 @@ var increaseTrendOptins =(dayList,dayConfirmList,daySuspectList)=> ({
     legend: {
         data: ['新增确诊', '新增疑似'],
         textStyle: {
-            fontSize: 25
+            fontSize: 18.75
         }
     },
     xAxis: {
@@ -93,7 +93,7 @@ var increaseTrendOptins =(dayList,dayConfirmList,daySuspectList)=> ({
         name: '数量(人)',
         type: 'value',
         nameTextStyle: {
-            fontSize: 20
+            fontSize: 15
         }
     },
     series: [
@@ -103,7 +103,7 @@ var increaseTrendOptins =(dayList,dayConfirmList,daySuspectList)=> ({
             data: dayConfirmList,
             lineStyle: {
                 color: '#D81D1B',
-                width: 4
+                width: 3
             }
         },
         {
@@ -112,7 +112,7 @@ var increaseTrendOptins =(dayList,dayConfirmList,daySuspectList)=> ({
             data: daySuspectList,
             lineStyle: {
                 color: '#F7AB1A',
-                width: 4
+                width: 3
             }
         }
     ]
