@@ -13,7 +13,7 @@
    3.展示第二条中的国内数据变化曲线  
    4.展示了疫情最新的报道(引用的腾讯新闻)  
 
- ![image](https://github.com/patienceroll/sars-situation/blob/master/readMeData/1.png)
- ![image](https://github.com/patienceroll/sars-situation/blob/master/readMeData/2.png)  
- ![image](https://github.com/patienceroll/sars-situation/blob/master/readMeData/3.png)
- ![image](https://github.com/patienceroll/sars-situation/blob/master/readMeData/4.png)
+ ![image](https://github.com/patienceroll/sars-situation/raw/master/readMeData/1.png)
+ ![image](https://github.com/patienceroll/sars-situation/raw/master/readMeData/2.png)  
+ ![image](https://github.com/patienceroll/sars-situation/raw/master/readMeData/3.png)
+ ![image](https://github.com/patienceroll/sars-situation/raw/master/readMeData/4.png)
